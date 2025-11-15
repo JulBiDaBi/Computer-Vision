@@ -1,11 +1,12 @@
-data: "/kaggle/input/affectnet-yolo-format/YOLO_format"
+# Paths
+data: "${MY_ENV_HOME}/Phase1_EmotionRecognition/data/YOLO_format"
 
-train: "/kaggle/input/affectnet-yolo-format/YOLO_format/train/images"
-val: "/kaggle/input/affectnet-yolo-format/YOLO_format/valid/images"
-test: "/kaggle/input/affectnet-yolo-format/YOLO_format/test/images"
+train: "${MY_ENV_HOME}/Phase1_EmotionRecognition/data/YOLO_format/train/images"
+val: "${MY_ENV_HOME}/Phase1_EmotionRecognition/data/YOLO_format/valid/images"
+test: "${MY_ENV_HOME}/Phase1_EmotionRecognition/data/YOLO_format/test/images"
 
+# Classes
 nc: 8
-
 names:
   [
     "Anger",
@@ -19,4 +20,4 @@ names:
   ]
 
 # Network configuration (choose other variations if desired)
-network: "yolov8n"
+network: "yolov8m"
