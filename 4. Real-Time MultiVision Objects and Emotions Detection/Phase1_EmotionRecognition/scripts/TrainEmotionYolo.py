@@ -38,4 +38,4 @@ model_path = os.path.join(HOME, "Phase1_EmotionRecognition", "models", "yolov8m_
 os.makedirs(os.path.dirname(model_path), exist_ok=True)
 model.save(model_path)
 
-print(f"✅ Modèle sauvegardé sous: {model_path}")git
+print(f"Modèle sauvegardé sous: {model_path}")
