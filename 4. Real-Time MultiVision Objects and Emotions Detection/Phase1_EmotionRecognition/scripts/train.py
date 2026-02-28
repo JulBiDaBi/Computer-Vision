@@ -1,14 +1,16 @@
 import os
 from ultralytics import YOLO
 
-# Définir le chemin HOME
-HOME = os.getcwd()
+# Get the directory where the script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# Get the project root (Phase1_EmotionRecognition)
+PHASE_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
 
 # Charger le modèle YOLOv8 pré-entraîné
 model = YOLO("yolov8m.pt")
 
-# Charger la configuration YAML (chemin vers ton fichier YAML)
-config = os.path.join(HOME, "Phase1_EmotionRecognition", "data", "YOLO_format", "data_AffectNet.yaml")
+# Charger la configuration YAML
+config = os.path.join(PHASE_ROOT, "data", "YOLO_format", "data_AffectNet.yaml")
 
 # Entraînement du modèle
 results = model.train(
@@ -20,7 +22,7 @@ results = model.train(
     lr0=0.001,              # Taux d'apprentissage initial
     optimizer="Adam",       # Optimiseur
     augment=True,           # Augmentation des données
-    project="affectnet_training",  # Dossier projet
+    project=os.path.join(PHASE_ROOT, "results"),  # Dossier projet
     name="yolov8m_emotions_v1"     # Nom de l'expérience
 )
 
@@ -34,7 +36,7 @@ model.val(split="test")
 model.export(format="onnx")
 
 # Sauvegarde du modèle entraîné
-model_path = os.path.join(HOME, "Phase1_EmotionRecognition", "models", "yolov8m_emotions_affectnet.pt")
+model_path = os.path.join(PHASE_ROOT, "models", "yolov8m_emotions_affectnet.pt")
 os.makedirs(os.path.dirname(model_path), exist_ok=True)
 model.save(model_path)
 

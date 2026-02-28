@@ -1,3 +1,8 @@
+path: ./
+train: train/images
+val: valid/images
+test: test/images
+nc: 8
 names:
   0: Anger
   1: Contempt
@@ -7,9 +12,3 @@ names:
   5: Neutral
   6: Sad
   7: Surprise
-nc: 8
-path: C:\Users\Visiteur\Desktop\Julien\Privacy\14- Projet MultiVision\Computer-Vision\4.
-  Real-Time MultiVision Objects and Emotions Detection\Phase1_EmotionRecognition\data\YOLO_format
-test: test/images
-train: train/images
-val: valid/images

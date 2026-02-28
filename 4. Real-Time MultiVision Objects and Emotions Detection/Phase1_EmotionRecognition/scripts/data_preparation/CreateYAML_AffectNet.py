@@ -1,12 +1,14 @@
 import os
 import yaml
 
-# Récupérer le chemin courant
-HOME = os.getcwd()
+# Get the directory where the script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# Get the project root (Phase1_EmotionRecognition)
+PHASE_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
 
 # Construire le contenu YAML
 data_yaml = {
-    "path": os.path.join(HOME, "Phase1_EmotionRecognition", "data", "YOLO_format"),
+    "path": os.path.join(PHASE_ROOT, "data", "YOLO_format"),
     "train": "train/images",
     "val": "valid/images",
     "test": "test/images",
@@ -25,7 +27,7 @@ data_yaml = {
 }
 
 # Sauvegarder dans un fichier
-file_path = os.path.join(HOME, "Phase1_EmotionRecognition", "data", "YOLO_format", "data_AffectNet.yaml")
+file_path = os.path.join(PHASE_ROOT, "data", "YOLO_format", "data_AffectNet.yaml")
 with open(file_path, "w") as f:
     yaml.dump(data_yaml, f)
     

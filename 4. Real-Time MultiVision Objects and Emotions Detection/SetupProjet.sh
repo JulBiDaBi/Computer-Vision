@@ -33,7 +33,7 @@ mkdir -p Common/{docker,configs,logs,utils,pretrained}
 mkdir -p docs
 
 # Phase 1 - Détection et reconnaissance des émotions
-mkdir -p Phase1_EmotionrRecognition/{data/raw,models,scripts,results}
+mkdir -p Phase1_EmotionRecognition/{data/raw,models,scripts/archive,scripts/data_preparation,notebooks,results}
 
 # Phase 2 - Détection d’objets
 mkdir -p Phase2_ObjectDetection/{data/{raw,annotations},models,scripts,results}
